@@ -9,6 +9,8 @@ import (
 	"unicode"
 )
 
+const maxInvalid = 3
+
 func Run() {
 	reader := bufio.NewReader(os.Stdin)
 	for {
@@ -59,7 +61,6 @@ func Run() {
 
 func PlayGame(word string) {
 	game := NewHangmanGame(word)
-	const maxInvalid = 3
 	re := regexp.MustCompile(`^[a-zA-Z]$`)
 	scanner := bufio.NewScanner(os.Stdin)
 	invalidAttempts := 0
